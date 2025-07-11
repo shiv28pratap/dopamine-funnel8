@@ -4,59 +4,74 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <div className="bg-black min-h-screen text-white font-sans overflow-hidden">
-      <section className="flex flex-col items-center justify-center h-[90vh] text-center px-6 relative">
+      {/* Meme-Hook Intro */}
+      <section className="flex flex-col items-center justify-center h-[90vh] text-center px-6">
         <motion.h1
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-3xl md:text-5xl font-bold text-neon-cyan drop-shadow-lg"
+          transition={{ duration: 0.9 }}
+          className="text-3xl md:text-5xl font-bold text-neon-cyan mb-4"
         >
-          Everything You Know About Success Is Backwards
+          🤯 Daily Meme Dose for Your Brain Chemistry
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="mt-4 text-base md:text-lg text-gray-400"
+          transition={{ delay: 0.4, duration: 0.9 }}
+          className="text-base md:text-lg text-gray-400 max-w-xl"
         >
-          Dopamine is the real cheat code — and you’re one tap away from using it.
+          Hook your dopamine with memes, reels, and facts you can't stop watching. Updated daily. Tap and lose track of time.
         </motion.p>
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
+          transition={{ delay: 0.9, duration: 0.5 }}
           className="mt-8"
         >
-          <button className="text-neon-magenta text-md font-semibold px-6 py-3 bg-transparent border border-neon-magenta hover:bg-neon-magenta hover:text-black transition-all duration-300">
-            Unlock It. Don’t Think.
-          </button>
+          <a href="#memes" className="text-neon-magenta text-md font-semibold px-6 py-3 border border-neon-magenta hover:bg-neon-magenta hover:text-black transition-all duration-300">
+            Start Scrolling
+          </a>
         </motion.div>
       </section>
-      <section className="bg-black px-4 py-14">
-        <div className="max-w-md mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-neon-magenta mb-4">
-            Here’s how the system hacks your brain (you’ve already felt it)
-          </h2>
-          <p className="text-gray-400 text-base">
-            Every scroll, every flicker, every delay is engineered to trigger your reward center. This isn't UI, it's neural warfare.
-          </p>
+
+      {/* Meme Feed */}
+      <section id="memes" className="bg-black px-4 py-12">
+        <div className="max-w-2xl mx-auto space-y-12">
+          {[
+            {
+              text: "When your brain runs on memes instead of sleep.",
+              img: "https://i.imgur.com/nRWdlwU.jpg"
+            },
+            {
+              text: "This is what dopamine withdrawal looks like...",
+              img: "https://i.imgur.com/MiT5cLf.jpeg"
+            },
+            {
+              text: "POV: You said just one reel. It's 3:47am.",
+              img: "https://i.imgur.com/EeRjZh8.jpeg"
+            }
+          ].map((meme, idx) => (
+            <div key={idx} className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg">
+              <img src={meme.img} alt="meme" className="w-full object-cover" />
+              <p className="text-white p-4 text-center text-sm">{meme.text}</p>
+            </div>
+          ))}
         </div>
       </section>
-      <section className="bg-gradient-to-b from-black to-gray-900 px-4 py-14 text-center">
-        <h3 className="text-neon-cyan text-lg font-semibold mb-3">
-          92,431 users report losing track of time within 3 minutes
-        </h3>
-        <p className="text-gray-400 max-w-md mx-auto text-sm">
-          Used by CEOs, Gamers, Night Owls, and ADHD Hackers. The longer you wait, the stronger the algorithm gets. Don’t be the last human left.
-        </p>
-      </section>
-      <section className="bg-black px-4 py-16 text-center">
+
+      {/* Final CTA */}
+      <section className="bg-black px-6 py-16 text-center">
         <h4 className="text-2xl md:text-4xl font-bold text-white mb-6">
-          Tap In. Black Out. Repeat.
+          That hit different?
         </h4>
-        <button className="text-neon-cyan text-md font-semibold px-6 py-3 bg-transparent border border-neon-cyan hover:bg-neon-cyan hover:text-black transition-all duration-300">
-          Start the Sequence
-        </button>
+        <a
+          href="https://www.instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neon-cyan text-md font-semibold px-6 py-3 border border-neon-cyan hover:bg-neon-cyan hover:text-black transition-all duration-300"
+        >
+          Follow for Daily Mind Melts 💥
+        </a>
       </section>
     </div>
   );
